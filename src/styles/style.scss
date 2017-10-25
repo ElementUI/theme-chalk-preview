@@ -1,0 +1,115 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',SimSun,sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  padding: 0 20px;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+header::after {
+  display: inline-block;
+  content: "";
+  height: 100%;
+  vertical-align: middle
+}
+
+.container {
+  padding-top: 80px;
+}
+
+.menu {
+  height: 100%;
+}
+
+.content {
+  padding: 20px;
+}
+
+.header-logo {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header-operations {
+  display: inline-block;
+  float: right;
+  padding-right: 30px;
+  height: 100%;
+  & li {
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 10px;
+    margin: 0 10px;
+    line-height: 80px;
+    cursor: pointer;
+    &:last-child {
+      cursor: default;
+    }
+  }
+  .header-download {
+    opacity: 0.4;
+    cursor: default;
+    &.is-available {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+  span {
+    opacity: 0.7;
+  }
+  .header-lang {
+    cursor: pointer;
+    &.is-active {
+      opacity: 1;
+    }
+  }
+}
+
+.header-operations::after {
+  display: inline-block;
+  content: "";
+  height: 100%;
+  vertical-align: middle
+}
+
+.theme-form {
+  text-align: center;
+}
+
+.query-form {
+  margin-top: 20px;
+  padding-top: 25px;
+  background-color: #f2f2f2;
+}
+
+.table {
+  margin-top: 30px;
+}
+
+.help p {
+  margin-bottom: 10px;
+  a {
+    color: #409eff;
+  }
+}
