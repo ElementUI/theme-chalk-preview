@@ -278,20 +278,20 @@
       },
 
       getIndexStyle () {
-        this.getFile('//unpkg.com/element-ui@next/lib/theme-chalk/index.css')
+        this.getFile('//unpkg.com/element-ui/lib/theme-chalk/index.css')
           .then(({ data }) => {
             this.originalStyle = this.getStyleTemplate(data)
           })
       },
 
       getSeparatedStyles () {
-        this.getFile('//unpkg.com/element-ui@next/lib/theme-chalk/')
+        this.getFile('//unpkg.com/element-ui/lib/theme-chalk/')
           .then(({ data }) => {
             return data.match(/href="[\w-]+\.css"/g).map(str => str.split('"')[1])
           })
           .then(styleFiles => {
             return Promise.all(styleFiles.map(file => {
-              return this.getFile(`//unpkg.com/element-ui@next/lib/theme-chalk/${file}`)
+              return this.getFile(`//unpkg.com/element-ui/lib/theme-chalk/${file}`)
             }))
           })
           .then(files => {
@@ -306,7 +306,7 @@
 
       getFontFiles () {
         Promise.all(this.fontFiles.map(font => {
-          return this.getFile(`//unpkg.com/element-ui@next/lib/theme-chalk/fonts/${font}`, true)
+          return this.getFile(`//unpkg.com/element-ui/lib/theme-chalk/fonts/${font}`, true)
         }))
           .then(fonts => {
             this.fonts = fonts
