@@ -236,6 +236,7 @@
 
       getStyleTemplate (data) {
         const colorMap = {
+          '#3a8ee6': 'shade-1',
           '#409eff': 'primary',
           '#53a8ff': 'light-1',
           '#66b1ff': 'light-2',
