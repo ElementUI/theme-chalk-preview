@@ -114,6 +114,9 @@
   import tableData from './table-data'
   import JSZip from 'jszip'
   import FileSaver from 'file-saver'
+  import { use } from 'element-ui/lib/locale'
+  import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
+  import enLocale from 'element-ui/lib/locale/lang/en'
 
   export default {
     name: 'app',
@@ -158,7 +161,9 @@
 
     computed: {
       lang () {
-        return this.$route.path
+        const lang = this.$route.path
+        use(lang === '/zh-CN' ? zhLocale : enLocale)
+        return lang
       }
     },
 
