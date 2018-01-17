@@ -163,6 +163,7 @@
       lang () {
         const lang = this.$route.path
         use(lang === '/zh-CN' ? zhLocale : enLocale)
+        this.query.date = []
         return lang
       }
     },
