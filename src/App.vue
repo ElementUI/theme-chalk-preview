@@ -254,11 +254,17 @@
           '#d9ecff': 'light-8',
           '#ecf5ff': 'light-9'
         }
+        let colorOverrides = [] // only capture color overides
         Object.keys(colorMap).forEach(key => {
           const value = colorMap[key]
-          data = data.replace(new RegExp(key, 'ig'), value)
+          let repl = new RegExp(`(^|})([^{]+{[^{}]+)${key}\\b([^}]*)(?=})`, 'gi')
+          let nestRepl = new RegExp(key, 'ig') // for greed matching before the 'key'
+          let v
+          while ((v = repl.exec(data))) {
+            colorOverrides.push(v[2].replace(nestRepl, value) + value + v[3] + '}') // '}' not captured in the regexp repl to reserve it as locator-boundary
+          }
         })
-        return data
+        return colorOverrides.join('')
       },
 
       getFile (url, isBlob = false) {
